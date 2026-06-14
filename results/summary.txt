@@ -1,16 +1,44 @@
-Submission-hardening experiment for paper 78 energy_guided_diffusion_policy_limits
-Seven seeds, 600 episodes per seed, strong baselines, ablations, stress sweep, and negative cases.
-observed_only_behavior_clone hidden_mode_shift mean_success=0.4093 ci95=0.0120 tail=0.5907
-observed_only_behavior_clone combined_stress mean_success=0.3160 ci95=0.0140 tail=0.6840
-data_augmentation_wam hidden_mode_shift mean_success=0.4738 ci95=0.0180 tail=0.5262
-data_augmentation_wam combined_stress mean_success=0.4098 ci95=0.0124 tail=0.5902
-scalar_uncertainty_planner hidden_mode_shift mean_success=0.5564 ci95=0.0123 tail=0.4436
-scalar_uncertainty_planner combined_stress mean_success=0.4919 ci95=0.0191 tail=0.5081
-ensemble_disagreement_planner hidden_mode_shift mean_success=0.5879 ci95=0.0181 tail=0.4121
-ensemble_disagreement_planner combined_stress mean_success=0.5371 ci95=0.0136 tail=0.4629
-conformal_risk_filter hidden_mode_shift mean_success=0.5969 ci95=0.0240 tail=0.4031
-conformal_risk_filter combined_stress mean_success=0.5621 ci95=0.0092 tail=0.4379
-proposed_branch_mechanism hidden_mode_shift mean_success=0.6895 ci95=0.0207 tail=0.3105
-proposed_branch_mechanism combined_stress mean_success=0.6493 ci95=0.0122 tail=0.3507
-oracle_branch_upper_bound hidden_mode_shift mean_success=0.7576 ci95=0.0191 tail=0.2424
-oracle_branch_upper_bound combined_stress mean_success=0.7343 ci95=0.0122 tail=0.2657
+Paper 78 energy_guided_diffusion_policy_limits trajectory diffusion-limit rebuild
+Terminal recommendation: KILL_ARCHIVE
+Reason: energy_guided_diffusion does not show safe off-support behavior: off_support success=0.000 versus rerank=0.000 and CEM=1.000; paired diff vs rerank=0.00000 and vs CEM=-1.00000.
+Main rollout rows: 980
+Seeds: [0, 1, 2, 3, 4, 5, 6]
+
+Decisive off-support corridor:
+behavior_clone_nearest success=0.00000 ci95=0.00000 collision=1.00000 support_distance=0.00000
+unguided_diffusion_prior success=0.00000 ci95=0.00000 collision=1.00000 support_distance=0.00426
+energy_rerank_unguided success=0.00000 ci95=0.00000 collision=1.00000 support_distance=0.00446
+energy_guided_diffusion success=0.00000 ci95=0.00000 collision=1.00000 support_distance=0.05286
+strong_guided_diffusion success=0.00000 ci95=0.00000 collision=0.00000 support_distance=0.08648
+cem_trajectory_optimizer success=1.00000 ci95=0.00000 collision=0.00000 support_distance=0.60945
+grid_oracle success=1.00000 ci95=0.00000 collision=0.00000 support_distance=0.60868
+
+Rare-mode recovery:
+energy_guided_diffusion success=0.39286 ci95=0.14572
+
+Deceptive energy basin:
+energy_guided_diffusion collision=0.00000 ci95=0.00000
+
+Pairwise off-support success:
+vs rerank mean_diff=0.00000 ci95=0.00000
+vs cem mean_diff=-1.00000 ci95=0.00000
+
+Ablation summary off-support:
+full_energy_guided success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
+no_task_gradient success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
+rerank_only success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
+no_safety_projection success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
+strong_projection success=0.00000 ci95=0.00000 collision=0.03571 mode_escape=0.00000
+no_prior_score success=0.00000 ci95=0.00000 collision=0.92857 mode_escape=0.60714
+overguidance success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
+
+Stress level 1.0:
+energy_rerank_unguided success=0.00000 ci95=0.00000 mode_escape=0.00000
+energy_guided_diffusion success=0.00000 ci95=0.00000 mode_escape=0.00000
+strong_guided_diffusion success=0.00000 ci95=0.00000 mode_escape=0.00000
+cem_trajectory_optimizer success=1.00000 ci95=0.00000 mode_escape=1.00000
+grid_oracle success=1.00000 ci95=0.00000 mode_escape=1.00000
+
+Top guided failure labels:
+success: 95
+collision_shortcut_from_guidance: 45

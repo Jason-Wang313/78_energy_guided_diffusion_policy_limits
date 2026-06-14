@@ -1,4 +1,10 @@
-case,expected_behavior,observed_success,lesson
-unmodeled_hardware_damage,planner abstains or requests human inspection,0.18,branch semantics cannot repair missing actuation
-semantic_goal_ambiguity,diagnostic physical probes do not solve language ambiguity,0.31,needs a separate instruction-grounding loop
-adversarial_sensor_dropout,tail-risk objective becomes conservative,0.39,sensor-health modeling is out of scope
+split,seed,task_id,method,failure_label,collision,dynamic_violation,support_distance,mode,target_mode,lesson
+off_support_corridor,0,0,energy_guided_diffusion,collision_shortcut_from_guidance,1,1,0.05239,lower,upper,task-energy gradients stayed inside the blocked demonstration corridor instead of creating a new safe homotopy
+off_support_corridor,0,0,energy_rerank_unguided,collision_or_blocked_prior_mode,1,0,0.00424,lower,upper,reranking and prior sampling cannot repair a blocked mode when the safe mode is absent from demonstrations
+off_support_corridor,0,0,strong_guided_diffusion,dynamic_violation,0,1,0.09170,lower,upper,aggressive guidance violates trajectory smoothness or velocity constraints
+off_support_corridor,0,0,unguided_diffusion_prior,collision_or_blocked_prior_mode,1,0,0.00405,lower,upper,reranking and prior sampling cannot repair a blocked mode when the safe mode is absent from demonstrations
+rare_mode_recovery,0,1,energy_guided_diffusion,collision_shortcut_from_guidance,1,1,0.05546,lower,upper,task-energy gradients stayed inside the blocked demonstration corridor instead of creating a new safe homotopy
+rare_mode_recovery,0,0,unguided_diffusion_prior,collision_or_blocked_prior_mode,1,0,0.00412,lower,upper,reranking and prior sampling cannot repair a blocked mode when the safe mode is absent from demonstrations
+rare_mode_recovery,0,1,energy_rerank_unguided,collision_or_blocked_prior_mode,1,0,0.00493,lower,upper,reranking and prior sampling cannot repair a blocked mode when the safe mode is absent from demonstrations
+deceptive_energy_basin,0,1,unguided_diffusion_prior,collision_or_blocked_prior_mode,1,0,0.00473,straight,lower,reranking and prior sampling cannot repair a blocked mode when the safe mode is absent from demonstrations
+rare_mode_recovery,0,2,strong_guided_diffusion,dynamic_violation,0,1,0.10172,lower,upper,aggressive guidance violates trajectory smoothness or velocity constraints

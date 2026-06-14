@@ -1,6 +1,15 @@
-ablation,combined_stress_mean_success,ci95_success,interpretation
-full_proposed_branch_mechanism,0.6714,0.0158,all components
-minus_branch_atlas,0.5700,0.0209,removes explicit unrealized futures
-minus_tail_risk_objective,0.5814,0.0117,uses mean predicted value only
-minus_diagnostic_probe,0.5890,0.0148,does not actively test ambiguous physical modes
-minus_failure_memory,0.5990,0.0150,does not reuse repaired beliefs
+split,ablation,success,ci95,collision,support_distance,mode_escape,rows
+rare_mode_recovery,full_energy_guided,0.21429,0.07000,0.78571,0.04074,0.21429,28
+off_support_corridor,full_energy_guided,0.00000,0.00000,1.00000,0.05322,0.00000,28
+rare_mode_recovery,no_task_gradient,0.35714,0.18074,0.64286,0.00454,0.35714,28
+off_support_corridor,no_task_gradient,0.00000,0.00000,1.00000,0.00442,0.00000,28
+rare_mode_recovery,rerank_only,0.46429,0.12780,0.53571,0.00463,0.46429,28
+off_support_corridor,rerank_only,0.00000,0.00000,1.00000,0.00441,0.00000,28
+rare_mode_recovery,no_safety_projection,0.28571,0.16663,0.71429,0.04295,0.28571,28
+off_support_corridor,no_safety_projection,0.00000,0.00000,1.00000,0.05973,0.00000,28
+rare_mode_recovery,strong_projection,0.32143,0.14000,0.00000,0.05734,0.32143,28
+off_support_corridor,strong_projection,0.00000,0.00000,0.03571,0.08600,0.00000,28
+rare_mode_recovery,no_prior_score,0.00000,0.00000,0.89286,0.25874,0.71429,28
+off_support_corridor,no_prior_score,0.00000,0.00000,0.92857,0.34174,0.60714,28
+rare_mode_recovery,overguidance,0.00000,0.00000,1.00000,0.09974,0.00000,28
+off_support_corridor,overguidance,0.00000,0.00000,1.00000,0.10117,0.00000,28
