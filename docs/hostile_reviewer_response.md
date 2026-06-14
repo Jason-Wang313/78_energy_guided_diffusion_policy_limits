@@ -1,26 +1,25 @@
-        # Hostile Reviewer Response
+# Hostile Reviewer Response
 
-        Paper: 78 Energy-Guided Diffusion Policy Limits
+Paper: 78 Energy-Guided Diffusion Policy Limits
 
-        ## Strongest Technical Threats
-        - Muscle Coordination Is Habitual Rather than Optimal (2012)
-- Contrastive Energy Prediction for Exact Energy-Guided Diffusion Sampling in Offline Reinforcement Learning (2023)
-- Prompt-Guided Large Language Model for Estimating the State of Charge of Containerized Lithium-Ion Battery Energy Storage Systems (n.d.)
-- DPTG: diffusion policy with tactile feasibility guidance (2026)
-- Guided Discovery of New Behaviors using Diffusion Policies (2026)
-- ProgressVLA: Progress-Guided Diffusion Policy for Vision-Language Robotic Manipulation (2026)
-- Simple Clothoid Paths for Autonomous Vehicle Lane Changes at the Limits of Handling (2013)
-- Review for "Competition and demography rather than dispersal limitation slow down upward shifts of trees' upper elevation limits in the Alps" (2020)
+## Strongest Technical Threats
 
-        ## ICLR Main Response
-        A hostile ICLR reviewer would be correct to reject this as a main-conference submission. The v2 paper has reproducible synthetic evidence and careful limitations, but it does not contain the real robot, high-fidelity simulator, learned model, or manual related-work depth needed for the ICLR main track.
+- Energy guidance for diffusion policies and offline reinforcement learning can be interpreted as sample reranking unless it changes support.
+- Planning and trajectory-optimization baselines such as CEM can create new feasible homotopies without relying on demonstration support.
+- Diffusion-policy robustness papers already study guidance, feasibility filters, tactile feasibility, and behavior discovery.
+- A local kernel sampler is not enough to claim a trained neural diffusion-policy advance.
 
-        ## Honest Action
-        The paper is marked `KILL_ARCHIVE`. This avoids converting a generated workshop-style idea into an overstated main-conference claim.
+## v4 Response
 
-        ## What Would Be Needed To Revive
-        - Real robot or high-fidelity benchmark experiments.
-        - Implemented model and baselines, not synthetic probability tables.
-        - Manual full-paper related-work audit.
-        - Paper-specific writing and figures.
-        - Evidence that the core mechanism is learned and useful under deployment shift.
+The hostile reviewer would still reject this as an ICLR main submission, but for a stronger reason than v3. The v4 rebuild now includes implemented evidence. That evidence shows the central mechanism fails on the decisive support-gap split:
+
+- Guided diffusion: 0.000 off-support success.
+- Reranking: 0.000 off-support success.
+- CEM: 1.000 off-support success.
+- Oracle: 1.000 off-support success.
+
+The method does not safely create absent homotopies. It either stays near the blocked prior mode or, without prior score, leaves support unsafely.
+
+## Honest Action
+
+The paper remains `KILL_ARCHIVE`. The repository should be retained as a negative diagnostic, not reframed as an ICLR-main algorithm paper.
