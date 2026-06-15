@@ -25,3 +25,10 @@
 - Generated 980 main rollout rows, 392 ablation rows, and 420 stress rows.
 - Rewrote docs and manuscript around the negative result.
 - Terminal decision: KILL_ARCHIVE.
+
+## 2026-06-15 Continuation Audit
+
+- Rechecked code, CSV, ablation, stress, BibTeX/PDF, artifact-location, public-GitHub, and stale-documentation gates.
+- Rebuilt the PDF after adding bibliography authors and replacing fragile `[h]` float specifiers.
+- Confirmed the negative result: energy guidance equals reranking at 0.000 off-support success, while CEM and oracle solve the task.
+- Terminal decision remains: KILL_ARCHIVE.

@@ -23,3 +23,15 @@ The method does not safely create absent homotopies. It either stays near the bl
 ## Honest Action
 
 The paper remains `KILL_ARCHIVE`. The repository should be retained as a negative diagnostic, not reframed as an ICLR-main algorithm paper.
+
+## Continuation Response 2026-06-15
+
+The hostile reviewer remains correct after re-audit.
+
+- `energy_guided_diffusion` and `energy_rerank_unguided` both score 0.000 success on the off-support split.
+- CEM and oracle both score 1.000 success, so the task is solvable but not by the diffusion-guidance mechanism.
+- `strong_guided_diffusion` avoids collision but still has 0.000 success and 0.000 mode escape.
+- `no_prior_score` escapes the prior, but unsafely: 0.607 mode escape, 0.000 success, and 0.929 collision.
+- At stress level 1.0, guided diffusion remains 0.000 while CEM and oracle are 1.000.
+
+Updated response: keep `KILL_ARCHIVE`.
