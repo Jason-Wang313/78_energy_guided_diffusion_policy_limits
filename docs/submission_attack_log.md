@@ -192,3 +192,16 @@ Attack: No meaningful recoverable ICLR-main issue remains after archiving.
 Verdict: Terminal condition reached.
 
 Action: Mark KILL_ARCHIVE and stop.
+
+## Continuation Attack 2026-06-15
+
+The current v4 artifacts were attacked again.
+
+- Code, CSV, BibTeX/PDF, public GitHub, and Downloads-only artifact gates passed.
+- The central claim still fails: `energy_guided_diffusion` reaches 0.000 +/- 0.000 success on `off_support_corridor`, equal to `energy_rerank_unguided`.
+- CEM and oracle each reach 1.000 +/- 0.000 success, proving the failure is not task impossibility.
+- Paired guided-minus-rerank success difference is 0.000; paired guided-minus-CEM success difference is -1.000.
+- The only ablation that escapes support, `no_prior_score`, does so unsafely with 0.929 collision and 0.000 success.
+- At stress level 1.0, guided diffusion remains 0.000 while CEM and oracle remain 1.000.
+
+Updated terminal action: keep `KILL_ARCHIVE`; do not submit.

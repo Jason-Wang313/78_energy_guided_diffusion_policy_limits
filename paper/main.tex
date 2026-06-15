@@ -40,7 +40,7 @@ The implemented methods are:
 \section{Main Results}
 Table~\ref{tab:offsupport} shows the decisive result. The task is solvable: CEM and the oracle solve every off-support test case. However, energy-guided diffusion cannot create the missing safe homotopy. It stays close to the blocked lower demonstration mode and collides.
 
-\begin{table}[h]
+\begin{table}[tbp]
 \centering
 \scriptsize
 \setlength{\tabcolsep}{4pt}
@@ -63,13 +63,13 @@ Method & Success & Collision & Support dist. & Mode escape \\
 
 The paired success difference between \texttt{energy\_guided\_diffusion} and \texttt{energy\_rerank\_unguided} is $0.000 \pm 0.000$. The paired success difference against CEM is $-1.000 \pm 0.000$. This is not a near miss: the proposed mechanism does not move into the missing support region.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=0.95\linewidth]{../figures/diffusion_limit_success.png}
 \caption{Off-support success. Energy guidance matches reranking and loses to CEM and the oracle.}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=0.95\linewidth]{../figures/diffusion_limit_support_distance.png}
 \caption{Support distance of selected trajectories. CEM and oracle leave the demonstration support to find the safe homotopy; guided diffusion remains near the blocked prior.}
@@ -78,7 +78,7 @@ The paired success difference between \texttt{energy\_guided\_diffusion} and \te
 \section{Ablations}
 The off-support ablations show why the result is terminal. The full guided method, no-gradient prior sampler, reranking, no-projection guidance, and overguidance all achieve 0.000 success. Strong projection reduces collision but still has 0.000 success and 0.000 mode escape. Removing the prior score produces 0.607 mode escape, but it still has 0.000 success and 0.929 collision. This means unconstrained gradients can leave the prior, but not safely enough to solve the robotics task.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=0.95\linewidth]{../figures/diffusion_limit_ablation.png}
 \caption{Off-support ablations. The prior traps the sampler; removing the prior causes unsafe escape rather than success.}
@@ -87,7 +87,7 @@ The off-support ablations show why the result is terminal. The full guided metho
 \section{Stress Sweep}
 The stress sweep varies the target homotopy frequency from common to absent. At stress level 1.0, the target mode is absent from the prior. \texttt{energy\_rerank\_unguided}, \texttt{energy\_guided\_diffusion}, and \texttt{strong\_guided\_diffusion} all have 0.000 success; CEM and oracle both have 1.000 success.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=0.95\linewidth]{../figures/diffusion_limit_stress_sweep.png}
 \caption{Support-gap stress sweep. Energy-guided diffusion collapses when the required homotopy disappears from the prior.}
