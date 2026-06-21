@@ -1,5 +1,27 @@
 # Final Audit
 
+## Expanded v5 Audit 2026-06-21
+
+1. Chosen thesis: a support-aware energy-guided diffusion bridge should safely create or recover off-prior trajectory behavior under missing support.
+2. ICLR-main decision: KILL_ARCHIVE.
+3. Submission-hardening version: v5.
+4. Evidence scale: 6,240 main rollouts, 480 training/support diagnostics, 520 seed-level metrics, 455 aggregate metric rows, 60 pairwise rows, 104 aggregate hard-regime seed rows, 91 aggregate metric rows, 12 aggregate pairwise rows, 1,600 ablation rollouts, 160 ablation seed rows, 20 ablation metric rows, 5,120 stress rollouts, 80 stress aggregate rows, 2,048 fixed-risk rollouts, 256 fixed-risk seed rows, 192 fixed-risk metric rows, 28 fixed-risk pairwise rows, and 12 curated negative cases.
+5. Decisive off-support result: `support_aware_energy_bridge_v5` reaches 1.000 +/- 0.000 success, but mode-diverse diffusion, diffusion-CEM hybrid, CHOMP-like optimization, CEM, graph search, and oracle also reach 1.000 +/- 0.000.
+6. Aggregate hard-regime result: bridge-v5 reaches 1.000 success, tied by the same hostile optimizer/search baselines.
+7. Max-stress result: bridge-v5 reaches 1.000 success at stress level 1.40, tied by mode-diverse diffusion, diffusion-CEM, CHOMP-like optimization, CEM, and graph search.
+8. Fixed-risk result: at budget 0.00, bridge-v5 has 0.000 fixed-risk success; at budgets 0.02, 0.05, and 0.10 it reaches 1.000 but ties hostile baselines.
+9. Ablation result: `no_support_awareness`, `no_energy_gradient`, `no_prior_score`, and `optimizer_handoff` reach 1.000 success, so the named mechanism is not necessary under the local frozen protocol.
+10. Reproducibility: `python src\run_experiment.py` regenerates CSVs and figures with the full protocol; `python scripts\generate_manuscript.py` regenerates `paper/main.tex`; the LaTeX/BibTeX sequence rebuilds the PDF.
+11. Exact Downloads PDF path: `C:/Users/wangz/Downloads/78.pdf`
+12. Downloads PDF SHA256: `2FD1529E9EB44BFC3BB2FC8B18FFA2ECD8CD61D06A47D746B53E56D388D64F91`
+13. PDF pages: 54.
+14. Validator: `python scripts\validate_submission_artifacts.py` passed.
+15. Visual QA: title/citation page, main figure/table pages, fixed-risk page, dense appendix tables, and references page were rendered and inspected; no clipping or broken figures were found.
+16. Desktop exclusion: `C:/Users/wangz/Desktop/78.pdf` does not exist.
+17. GitHub URL: https://github.com/Jason-Wang313/78_energy_guided_diffusion_policy_limits
+
+Continuation decision: keep `KILL_ARCHIVE`. This is an honest diagnostic archive with real hostile local evidence, not an ICLR-main-ready robotics submission.
+
 1. Chosen thesis: energy guidance should change reachable trajectory behavior rather than merely re-rank samples from a diffusion prior.
 2. ICLR-main decision: KILL_ARCHIVE.
 3. Submission-hardening version: v4.

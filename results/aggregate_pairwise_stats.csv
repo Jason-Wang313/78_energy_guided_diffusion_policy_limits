@@ -1,0 +1,13 @@
+split,reference,comparison,paired_success_diff,ci95_success_diff,paired_collision_reduction,paired_dynamic_reduction,paired_support_distance_diff,paired_risk_reduction,paired_mode_escape_diff,reference_better_seeds,seeds
+aggregate_hard_regime,support_aware_energy_bridge_v5,behavior_clone_nearest,0.33333,0.00000,0.33333,0.00000,0.20811,0.33228,0.33334,8,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,unguided_diffusion_prior,0.70139,0.02673,0.70139,0.00000,0.20343,0.70034,0.64583,8,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,energy_rerank_unguided,0.59722,0.02910,0.59722,0.00000,0.20313,0.59618,0.59722,8,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,energy_guided_diffusion,0.59375,0.02507,0.59028,0.59375,0.17350,0.59283,0.59028,8,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,strong_guided_diffusion,0.55903,0.04297,0.02083,0.55903,0.16089,0.55945,0.59028,8,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,support_projected_guidance,0.54514,0.03076,0.01389,0.54514,0.16277,0.54498,0.56597,8,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,mode_diverse_diffusion,0.00000,0.00000,0.00000,0.00000,-0.00106,0.00004,0.00000,0,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,diffusion_cem_hybrid,0.00000,0.00000,0.00000,0.00000,0.00002,-0.00004,0.00000,0,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,chomp_like_optimizer,0.00000,0.00000,0.00000,0.00000,-0.00018,-0.00009,0.00000,0,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,cem_trajectory_optimizer,0.00000,0.00000,0.00000,0.00000,-0.00006,0.00005,0.00000,0,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,graph_search_planner,0.00000,0.00000,0.00000,0.00000,-0.00027,0.00004,0.00000,0,8
+aggregate_hard_regime,support_aware_energy_bridge_v5,grid_oracle,0.00000,0.00000,0.00000,0.00000,-0.00030,0.00004,0.00000,0,8
