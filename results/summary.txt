@@ -1,44 +1,76 @@
-Paper 78 energy_guided_diffusion_policy_limits trajectory diffusion-limit rebuild
+Paper 78 energy_guided_diffusion_policy_limits expanded v5 support-gap rebuild
 Terminal recommendation: KILL_ARCHIVE
-Reason: energy_guided_diffusion does not show safe off-support behavior: off_support success=0.000 versus rerank=0.000 and CEM=1.000; paired diff vs rerank=0.00000 and vs CEM=-1.00000.
-Main rollout rows: 980
-Seeds: [0, 1, 2, 3, 4, 5, 6]
+Reason: support_aware_energy_bridge_v5 does not honestly clear the frozen local gates: off_support=1.000 versus rerank=0.000, strong_guided=0.062, best_non_oracle=mode_diverse_diffusion:1.000; paired diff vs rerank=1.00000+/-0.00000; aggregate hard-regime=1.000 versus mode_diverse_diffusion:1.000; max-stress=1.000 versus mode_diverse_diffusion:1.000; fixed-risk checks: budget 0.00: v5=0.000, best=energy_rerank_unguided:0.000; budget 0.02: v5=1.000, best=mode_diverse_diffusion:1.000; budget 0.05: v5=1.000, best=mode_diverse_diffusion:1.000; budget 0.10: v5=1.000, best=mode_diverse_diffusion:1.000; best ablation=no_support_awareness:1.000; failed gates: ablation_necessity.
+Main rollout rows: 6240
+Ablation rows: 1600
+Stress rows: 5120
+Fixed-risk rows: 2048
+Seeds: [0, 1, 2, 3, 4, 5, 6, 7]
 
 Decisive off-support corridor:
-behavior_clone_nearest success=0.00000 ci95=0.00000 collision=1.00000 support_distance=0.00000
-unguided_diffusion_prior success=0.00000 ci95=0.00000 collision=1.00000 support_distance=0.00426
-energy_rerank_unguided success=0.00000 ci95=0.00000 collision=1.00000 support_distance=0.00446
-energy_guided_diffusion success=0.00000 ci95=0.00000 collision=1.00000 support_distance=0.05286
-strong_guided_diffusion success=0.00000 ci95=0.00000 collision=0.00000 support_distance=0.08648
-cem_trajectory_optimizer success=1.00000 ci95=0.00000 collision=0.00000 support_distance=0.60945
-grid_oracle success=1.00000 ci95=0.00000 collision=0.00000 support_distance=0.60868
+behavior_clone_nearest success=0.00000 ci95=0.00000 collision=1.00000 risk=1.00000 support_distance=0.00000
+unguided_diffusion_prior success=0.00000 ci95=0.00000 collision=1.00000 risk=1.00000 support_distance=0.00467
+energy_rerank_unguided success=0.00000 ci95=0.00000 collision=1.00000 risk=1.00000 support_distance=0.00483
+energy_guided_diffusion success=0.00000 ci95=0.00000 collision=1.00000 risk=1.00017 support_distance=0.05500
+strong_guided_diffusion success=0.06250 ci95=0.05119 collision=0.04167 risk=0.94046 support_distance=0.07822
+support_projected_guidance success=0.04167 ci95=0.03087 collision=0.04167 risk=0.96001 support_distance=0.07862
+mode_diverse_diffusion success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00326 support_distance=0.61325
+diffusion_cem_hybrid success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00303 support_distance=0.60660
+chomp_like_optimizer success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00289 support_distance=0.60255
+cem_trajectory_optimizer success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00328 support_distance=0.61367
+graph_search_planner success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00325 support_distance=0.61298
+support_aware_energy_bridge_v5 success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00314 support_distance=0.60969
+grid_oracle success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00326 support_distance=0.61308
 
-Rare-mode recovery:
-energy_guided_diffusion success=0.39286 ci95=0.14572
+Pairwise off-support success for v5 reference:
+vs energy_rerank_unguided diff=1.00000 ci95=0.00000 better_seeds=8/8
+vs strong_guided_diffusion diff=0.93750 ci95=0.05119 better_seeds=8/8
+vs cem_trajectory_optimizer diff=0.00000 ci95=0.00000 better_seeds=0/8
 
-Deceptive energy basin:
-energy_guided_diffusion collision=0.00000 ci95=0.00000
-
-Pairwise off-support success:
-vs rerank mean_diff=0.00000 ci95=0.00000
-vs cem mean_diff=-1.00000 ci95=0.00000
+Aggregate hard-regime summary:
+behavior_clone_nearest success=0.66667 ci95=0.00000 collision=0.33333 risk=0.33333
+unguided_diffusion_prior success=0.29861 ci95=0.02673 collision=0.70139 risk=0.70139
+energy_rerank_unguided success=0.40278 ci95=0.02910 collision=0.59722 risk=0.59722
+energy_guided_diffusion success=0.40625 ci95=0.02507 collision=0.59028 risk=0.59387
+strong_guided_diffusion success=0.44097 ci95=0.04297 collision=0.02083 risk=0.56050
+support_projected_guidance success=0.45486 ci95=0.03076 collision=0.01389 risk=0.54603
+mode_diverse_diffusion success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00109
+diffusion_cem_hybrid success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00101
+chomp_like_optimizer success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00096
+cem_trajectory_optimizer success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00109
+graph_search_planner success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00109
+support_aware_energy_bridge_v5 success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00105
+grid_oracle success=1.00000 ci95=0.00000 collision=0.00000 risk=0.00109
 
 Ablation summary off-support:
-full_energy_guided success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
-no_task_gradient success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
-rerank_only success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
+support_aware_v5_full success=1.00000 ci95=0.00000 collision=0.00000 mode_escape=1.00000
+no_bridge_proposals success=0.02500 ci95=0.03208 collision=0.07500 mode_escape=0.00000
+no_support_awareness success=1.00000 ci95=0.00000 collision=0.00000 mode_escape=1.00000
 no_safety_projection success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
-strong_projection success=0.00000 ci95=0.00000 collision=0.03571 mode_escape=0.00000
-no_prior_score success=0.00000 ci95=0.00000 collision=0.92857 mode_escape=0.60714
-overguidance success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
+no_mode_diversity success=0.05000 ci95=0.07408 collision=0.03750 mode_escape=0.00000
+no_energy_gradient success=1.00000 ci95=0.00000 collision=0.00000 mode_escape=1.00000
+no_prior_score success=1.00000 ci95=0.00000 collision=0.00000 mode_escape=1.00000
+rerank_only success=0.00000 ci95=0.00000 collision=1.00000 mode_escape=0.00000
+sample_count_only success=0.01250 ci95=0.02450 collision=0.05000 mode_escape=0.00000
+optimizer_handoff success=1.00000 ci95=0.00000 collision=0.00000 mode_escape=1.00000
 
-Stress level 1.0:
-energy_rerank_unguided success=0.00000 ci95=0.00000 mode_escape=0.00000
-energy_guided_diffusion success=0.00000 ci95=0.00000 mode_escape=0.00000
-strong_guided_diffusion success=0.00000 ci95=0.00000 mode_escape=0.00000
-cem_trajectory_optimizer success=1.00000 ci95=0.00000 mode_escape=1.00000
-grid_oracle success=1.00000 ci95=0.00000 mode_escape=1.00000
+Stress level 1.40:
+energy_rerank_unguided success=0.00000 ci95=0.00000 risk=1.00000 mode_escape=0.00000
+energy_guided_diffusion success=0.00000 ci95=0.00000 risk=1.00107 mode_escape=0.00000
+strong_guided_diffusion success=0.10938 ci95=0.05551 risk=0.89527 mode_escape=0.00000
+support_projected_guidance success=0.06250 ci95=0.08020 risk=0.94051 mode_escape=0.00000
+mode_diverse_diffusion success=1.00000 ci95=0.00000 risk=0.00323 mode_escape=1.00000
+diffusion_cem_hybrid success=1.00000 ci95=0.00000 risk=0.00303 mode_escape=1.00000
+chomp_like_optimizer success=1.00000 ci95=0.00000 risk=0.00288 mode_escape=1.00000
+cem_trajectory_optimizer success=1.00000 ci95=0.00000 risk=0.00324 mode_escape=1.00000
+graph_search_planner success=1.00000 ci95=0.00000 risk=0.00325 mode_escape=1.00000
+support_aware_energy_bridge_v5 success=1.00000 ci95=0.00000 risk=0.00314 mode_escape=1.00000
 
-Top guided failure labels:
-success: 95
-collision_shortcut_from_guidance: 45
+Fixed-risk off-support summary:
+budget=0.00 v5=0.00000 ci95=0.00000 best=energy_rerank_unguided:0.00000
+budget=0.02 v5=1.00000 ci95=0.00000 best=mode_diverse_diffusion:1.00000
+budget=0.05 v5=1.00000 ci95=0.00000 best=mode_diverse_diffusion:1.00000
+budget=0.10 v5=1.00000 ci95=0.00000 best=mode_diverse_diffusion:1.00000
+
+Top v5 failure labels:
+success: 480
